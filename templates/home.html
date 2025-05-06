@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="dashboard">
+    <h2>{{ calories }} Kalorijas</h2>
+    <div class="macros">
+        <div class="macro-box">
+            <h3>Ogļhidrāti</h3>
+            <p>{{ carbs }}g</p>
+            <span class="red">Samazināt uzņemšanu</span>
+        </div>
+        <div class="macro-box">
+            <h3>Olbaltumvielas</h3>
+            <p>{{ protein }}g</p>
+            <span class="green">Turpini tā</span>
+        </div>
+        <div class="macro-box">
+            <h3>Tauki</h3>
+            <p>{{ fat }}g</p>
+            <span class="green">Palielināt uzņemšanu</span>
+        </div>
+    </div>
+    <h4 class="recommendation">Ieteikums</h4>
+    <ul class="goal-recommendations">
+        <li><strong>Svara zaudēšanai:</strong> Patērē mazāk kaloriju nekā tu patērē dienas laikā.</li>
+        <li><strong>Muskulatūras palielināšanai:</strong> Palielini kaloriju un olbaltumvielu uzņemšanu.</li>
+        <li><strong>Ķermeņa rekompozīcijai:</strong> Esi kaloriju līdzsvarā, uzņem daudz olbaltumvielu un trenējies.</li>
+    </ul>
+</div>
+
+<section class="healthy-diet">
+    <h3>Veselīga uztura ieteikumi</h3>
+    <ul>
+        <li>Ēd vismaz piecas porcijas dārzeņu un augļu dienā.</li>
+        <li>Izvēlies pilngraudu produktus.</li>
+        <li>Dzer pietiekami daudz ūdens.</li>
+        <li>Samazini cukura un sāls uzņemšanu.</li>
+        <li>Iekļauj veselīgos taukus: avokado, riekstus un olīveļļu.</li>
+    </ul>
+    <div class="diet-images">
+        <img src="{{ url_for('static', filename='images/veggies.png') }}" alt="Svaigi dārzeņi">
+        <img src="{{ url_for('static', filename='images/fruits.png') }}" alt="Augļi un ogas">
+    </div>
+</section>
+
+{% endblock %}
