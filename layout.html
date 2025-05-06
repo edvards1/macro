@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaloriju Pārskats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>🍏 Tavs Veselības Pārskats</h1>
+        {% if session.get('username') %}
+            <div class="user-actions">
+                <span class="welcome-text">Sveiks, {{ session['username'] }}!</span>
+                <a href="{{ url_for('edit_profile') }}" class="action-button">Rediģēt profilu</a>
+                <a href="{{ url_for('logout') }}" class="action-button logout-button">Izrakstīties</a>
+            </div>
+        {% endif %}
+    </header>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Veselības Projekts</p>
+    </footer>
+</body>
+</html>
