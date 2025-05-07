@@ -4,13 +4,11 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
-# Function to connect to the SQLite database
 def get_db_connection():
     conn = sqlite3.connect('users.db')
-    conn.row_factory = sqlite3.Row  # Allows us to access columns by name
+    conn.row_factory = sqlite3.Row  
     return conn
 
-# Function to create the database and table if it doesn't exist
 def create_table():
     conn = get_db_connection()
     c = conn.cursor()
@@ -28,7 +26,6 @@ def create_table():
     conn.commit()
     conn.close()
 
-# Function to calculate macros
 def calculate_macros(user):
     weight = user['weight']
     height = user['height']
@@ -40,10 +37,10 @@ def calculate_macros(user):
     else:
         bmr = 10 * weight + 6.25 * height - 5 * age - 161
 
-    daily_calories = bmr * 1.2  # Light activity multiplier
+    daily_calories = bmr * 1.2  
 
-    protein = weight * 2  # 2g per kg
-    fat = weight * 1      # 1g per kg
+    protein = weight * 2 
+    fat = weight * 1     
 
     protein_calories = protein * 4
     fat_calories = fat * 9
